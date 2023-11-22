@@ -1,0 +1,36 @@
+:host {
+  ion-list {
+    background-color: var(--ion-color-primary);
+  }
+}
+
+
+
+[cards] {
+  .grid-full ion-col {
+      flex: 0 0 50%;
+      max-width: 50%;
+      padding: 5px 0;
+  }
+  .row {
+      padding: 0;
+  }
+  .col {
+      padding: 5px 0;
+  }
+  .card {
+      margin: 0 0 0 12px;
+      padding: 14px;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10);
+      border-radius: 4px;
+      h1 {
+          font-weight: 400;
+          font-size: 3.5rem;
+      }
+      p {
+          font-weight: 100;
+          font-size: 1.5rem;
+      }
+  }
+}
+

@@ -1,0 +1,236 @@
+
+<ion-header collapse="fade" [translucent]="true">
+  <ion-toolbar color="dark">
+
+
+
+    <ion-buttons slot="start">
+    <ion-button color="light" routerLink="/my-cart">
+      <ion-icon slot="icon-only" name="bag-handle-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+
+
+    <ion-buttons slot="primary">
+      <ion-button color="light" routerLink="/settings">
+        <ion-icon slot="icon-only" name="person-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+<ion-content [fullscreen]="true" color="light">
+
+
+    <ion-card>
+      <ion-searchbar search-icon="search" placeholder="Pesquisar">
+
+        <ion-buttons slot="primary">
+          <ion-button color="dark" routerLink="/filter">
+            <ion-icon slot="icon-only" name="filter"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-searchbar>
+
+      <ion-item>
+        <ion-select label="Selecione" placeholder="Seleção de filtros">
+          <ion-select-option value="">Preço mais baixo</ion-select-option>
+          <ion-select-option value="">Preço mais alto</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+
+    </ion-card>
+
+    <ion-slides pager="true" >
+      <ion-slide>
+          <ion-img src="https://via.placeholder.com/300" alt="Imagem 1"></ion-img>
+      </ion-slide>
+      <ion-slide>
+          <ion-img src="https://via.placeholder.com/300" alt="Imagem 2"></ion-img>
+      </ion-slide>
+      <ion-slide>
+          <ion-img src="https://via.placeholder.com/300" alt="Imagem 3"></ion-img>
+      </ion-slide>
+  </ion-slides>
+
+    <div cards>
+
+      <div class="grid-full">
+        <ion-row>
+          <ion-col>
+            <ion-card>
+              <ion-card-header>
+                <ion-row justify-content-between>
+                  <ion-col col-auto>
+                    <img src="https://www.wvegan.com.br/wp-content/uploads/destaque-requeijao-produto.png" item-left/>
+                  </ion-col>
+                  <ion-col>
+                    <ion-row text-wrap><h2>Produto | Informações</h2></ion-row>
+                    <ion-row text-wrap><p>Loja | Info</p></ion-row>
+                    <ion-row class="buttons">
+                      <ion-col> $10.00</ion-col>
+                      <ion-col><ion-button color="dark">Adicionar ao carrinho</ion-button> </ion-col>
+                    </ion-row>
+                  </ion-col>
+                </ion-row>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+
+          <ion-col>
+            <ion-card>
+              <ion-card-header>
+                <ion-row justify-content-between>
+                  <ion-col col-auto>
+                    <img src="https://www.wvegan.com.br/wp-content/uploads/destaque-requeijao-produto.png" item-left/>
+                  </ion-col>
+                  <ion-col>
+                    <ion-row text-wrap><h2>Produto | Informações</h2></ion-row>
+                    <ion-row text-wrap><p>Loja | Info</p></ion-row>
+                    <ion-row class="buttons">
+                      <ion-col> $10.00</ion-col>
+                      <ion-col><ion-button color="dark">Adicionar ao carrinho</ion-button> </ion-col>
+                    </ion-row>
+                  </ion-col>
+                </ion-row>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+
+
+          <ion-col>
+            <ion-card>
+              <ion-card-header>
+                <ion-row justify-content-between>
+                  <ion-col col-auto>
+                    <img src="https://www.wvegan.com.br/wp-content/uploads/destaque-requeijao-produto.png" item-left/>
+                  </ion-col>
+                  <ion-col>
+                    <ion-row text-wrap><h2>Produto | Informações</h2></ion-row>
+                    <ion-row text-wrap><p>Loja | Info</p></ion-row>
+                    <ion-row class="buttons">
+                      <ion-col> $10.00</ion-col>
+                      <ion-col><ion-button color="dark">Adicionar ao carrinho</ion-button> </ion-col>
+                    </ion-row>
+                  </ion-col>
+                </ion-row>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+
+
+          <ion-col>
+            <ion-card>
+              <ion-card-header>
+                <ion-row justify-content-between>
+                  <ion-col col-auto>
+                    <img src="https://www.wvegan.com.br/wp-content/uploads/destaque-requeijao-produto.png" item-left/>
+                  </ion-col>
+                  <ion-col>
+                    <ion-row text-wrap><h2>Produto | Informações</h2></ion-row>
+                    <ion-row text-wrap><p>Loja | Info</p></ion-row>
+                    <ion-row class="buttons">
+                      <ion-col> $10.00</ion-col>
+                      <ion-col><ion-button color="dark">Adicionar ao carrinho</ion-button> </ion-col>
+                    </ion-row>
+                  </ion-col>
+                </ion-row>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+
+        </ion-row>
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="ion-padding">
+      <ion-list-header>
+        <ion-label color="dark">Mais Produtos</ion-label>
+        <ion-button color="dark" *ngIf="content_loaded">Ver Tudo <ion-icon slot="end" name="arrow-forward"></ion-icon>
+        </ion-button>
+      </ion-list-header>
+
+
+      <ion-list class="list-custom animate__animated animate__fadeIn" lines="full" *ngIf="!content_loaded">
+        <ion-item color="primary" *ngFor="let i of [].constructor(3);">
+          <ion-label color="medium">
+            <h3><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></h3>
+            <p><ion-skeleton-text animated style="width: 70%"></ion-skeleton-text></p>
+          </ion-label>
+          <ion-skeleton-text slot="end" animated style="width: 10%"></ion-skeleton-text>
+        </ion-item>
+      </ion-list>
+
+      <ion-list class="list-custom animate__animated animate__fadeIn" lines="full" *ngIf="content_loaded">
+        <ion-item color="primary" button detail="false">
+          <ion-avatar slot="start" class="ion-avatar-default-icon">
+            <ion-icon color="tertiary" size="large" name="cafe-outline"></ion-icon>
+          </ion-avatar>
+
+          <ion-label>
+            <p>Empresas</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item color="primary" button detail="false">
+          <ion-avatar slot="start" class="ion-avatar-default-icon">
+            <ion-icon color="tertiary" size="large" name="cash-outline"></ion-icon>
+          </ion-avatar>
+
+          <ion-label>
+            <p>Fornecedores</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+
+
+
+
+
+
+    <ion-list-header>
+      <ion-label color="dark">Mais Opções</ion-label>
+    </ion-list-header>
+
+
+
+    <ion-list class="item-card-list animate__animated animate__fadeIn" *ngIf="!content_loaded">
+      <ion-item lines="none" color="primary" *ngFor="let i of [].constructor(3);">
+        <ion-avatar slot="start">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-avatar>
+        <ion-label>
+          <h3><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></h3>
+          <p><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text></p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-list class="item-card-list animate__animated animate__fadeIn" *ngIf="content_loaded" lines="none">
+      <ion-item color="primary" button detail>
+        <ion-label color="medium">
+          <h3>Pagamento por:</h3>
+          <p>PayPal</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>

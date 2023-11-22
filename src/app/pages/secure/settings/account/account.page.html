@@ -1,0 +1,76 @@
+<ion-header collapse="fade" [translucent]="true">
+
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-back-button color="dark" text="Perfil" defaultHref="/settings">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title color="dark">
+      Configurações
+    </ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+
+
+<ion-content [fullscreen]="true" color="light">
+
+  <div class="ion-padding">
+    <ion-list-header class="ion-list-header-small">
+      <ion-label> <ion-text color="dark">Privacidade</ion-text> </ion-label>
+    </ion-list-header>
+
+    <ion-list class="list-custom" lines="full">
+      <ion-item color="primary" detail="false">
+        <ion-icon slot="start" color="light" name="notifications"></ion-icon>
+        <ion-label>
+          <h3>Notificações</h3>
+        </ion-label>
+        <ion-toggle color="light" checked slot="end"></ion-toggle>
+      </ion-item>
+    </ion-list>
+    <p> <ion-text color="dark">Nunca exibimos dados sensíveis em suas notificações.</ion-text> </p>
+
+
+
+    <ion-list-header class="ion-list-header-small">
+      <ion-label>
+        <ion-text color="dark">Feedback & Relatórios</ion-text>
+      </ion-label>
+    </ion-list-header>
+
+    <ion-list class="list-custom" lines="full">
+      <ion-item color="primary" detail="false">
+        <ion-icon slot="start" color="medium" name="bug"></ion-icon>
+        <ion-label>
+          <h3>Compartilhar Relatórios de Falhas</h3>
+        </ion-label>
+        <ion-toggle color="tertiary" slot="end"></ion-toggle>
+      </ion-item>
+
+      <ion-item color="primary" detail="false">
+        <ion-icon slot="start" color="medium" name="document"></ion-icon>
+        <ion-label>
+          <h3>Protocolos</h3>
+        </ion-label>
+        <ion-toggle color="tertiary" slot="end"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <p> <ion-text color="dark">Ative esta função para compartilhar automaticamente relatórios de falhas conosco. Importante: nenhum dado pessoal ou financeiro é compartilhado.</ion-text> </p>
+
+
+
+    <ion-list class="list-custom" lines="full">
+      <ion-item color="primary" button detail=false>
+        <ion-icon slot="start" color="light" name="close"></ion-icon>
+        <ion-label color="light">
+          <h3>Excluir Conta</h3>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+
+  </div>
+</ion-content>

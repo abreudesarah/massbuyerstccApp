@@ -1,0 +1,135 @@
+<ion-header collapse="fade" [translucent]="true">
+  <ion-toolbar color="dark">
+
+    <ion-title color="light">
+      Carrinho
+      </ion-title>
+
+    <ion-buttons slot="start" color="light">
+      <ion-buttons class="backbtn" routerLink="/home" routerDirection="back">
+        <ion-icon slot="icon-only" name="arrow-round-back"></ion-icon>
+      </ion-buttons>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content fullscreen="true" color="light">
+
+  <div class="cart-items">
+    <ion-card mode="ios">
+      <ion-card-content>
+        <div class="item-img">
+          <img src="../../../../assets/carrinho/blusas.jpg" />
+        </div>
+
+        <div class="item-info">
+          <p>200 Camisetas - CORES QUENTES</p>
+          <p>Tecidos e CIA</p>
+          <p>$130.00</p>
+
+          <div class="qty-selector">
+            <ion-button fill="clear">-</ion-button>
+            <ion-label>1</ion-label>
+            <ion-button fill="clear">+</ion-button>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+
+
+    <ion-card mode="ios">
+      <ion-card-content>
+        <div class="item-img">
+          <img src="../../../../assets/carrinho/tecido.jpg" />
+        </div>
+
+        <div class="item-info">
+          <p>5M TECIDO - Rosa e Roxo</p>
+          <p>Bata</p>
+          <p>$70.00</p>
+
+          <div class="qty-selector">
+            <ion-button fill="clear">-</ion-button>
+            <ion-label>1</ion-label>
+            <ion-button fill="clear">+</ion-button>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card mode="ios">
+      <ion-card-content>
+        <div class="item-img">
+          <img src="../../../../assets/carrinho/linhas.jpg" />
+        </div>
+
+        <div class="item-info">
+          <p>7 Rolos de linha</p>
+          <p>Chairman</p>
+          <p>$140.00</p>
+
+          <div class="qty-selector">
+            <ion-button fill="clear">-</ion-button>
+            <ion-label>1</ion-label>
+            <ion-button fill="clear">+</ion-button>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+
+
+    <ion-card mode="ios">
+      <ion-card-content>
+        <div class="item-img">
+          <img src="../../../../assets/carrinho/saias.jpeg" />
+        </div>
+
+        <div class="item-info">
+          <p>14 Saias Coloridas - OLUS SIZE</p>
+          <p>Plus Point</p>
+          <p>$34.00</p>
+
+          <div class="qty-selector">
+            <ion-button fill="clear">-</ion-button>
+            <ion-label>1</ion-label>
+            <ion-button fill="clear">+</ion-button>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card mode="ios">
+      <ion-card-content>
+        <div class="item-img">
+          <img src="../../../../assets/carrinho/seila.jpg" />
+        </div>
+
+        <div class="item-info">
+          <p>8 ROLOS DE LÃ</p>
+          <p>Cat's Eye Int.</p>
+          <p>$44.00</p>
+
+          <div class="qty-selector">
+            <ion-button fill="clear">-</ion-button>
+            <ion-label>1</ion-label>
+            <ion-button fill="clear">+</ion-button>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    
+  </div>
+</ion-content>
+<ion-footer translucent="true" class="ion-no-border" mode="md">
+  <ion-toolbar color="translucent">
+    <ion-button expand="block" class="main-button" routerLink="/checkout" routerDirection="forward">Continue</ion-button>
+  </ion-toolbar>
+</ion-footer>

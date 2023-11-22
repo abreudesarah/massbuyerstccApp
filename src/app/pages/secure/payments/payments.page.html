@@ -1,0 +1,75 @@
+<ion-header collapse="fade" [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-title color="light">
+    Produtos
+    </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button color="light" (click)="filter()">
+        <ion-icon slot="icon-only" name="filter"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true"  color="light">
+  <div class="ion-padding">
+    <ng-container *ngIf="content_loaded">
+
+      <ion-button id="click-trigger" expand="full">REGISTRAR PRODUTOS</ion-button>
+      <ion-popover trigger="click-trigger" triggerAction="click">
+        <ng-template>
+          <ion-content class="ion-padding">
+            <ion-card>
+            <ion-card-content>
+              <form>
+                  <ion-item>
+                      <ion-label position="stacked">Inserir Foto do Produto</ion-label>
+                      <ion-input type="file" accept="image/*"></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                      <ion-label position="stacked">Nome do Produto</ion-label>
+                      <ion-input type="text" required></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                      <ion-label position="stacked">Descrição do Produto</ion-label>
+                      <ion-textarea required></ion-textarea>
+                  </ion-item>
+
+                  <ion-item>
+                      <ion-label position="stacked">Tipo do Produto</ion-label>
+                      <ion-input type="text" required></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                      <ion-label position="stacked">Subtipo do Produto</ion-label>
+                      <ion-input type="text" required></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                      <ion-label position="stacked">Preço do Produto</ion-label>
+                      <ion-input type="number" step="0.01" required></ion-input>
+                  </ion-item>
+
+                  <ion-row>
+                      <ion-col>
+                          <ion-button expand="full" type="submit">Salvar</ion-button>
+                      </ion-col>
+                  </ion-row>
+              </form>
+          </ion-card-content>
+          </ion-card>
+      </ion-content>
+        </ng-template>
+      </ion-popover>
+
+
+
+    </ng-container>
+  </div>
+</ion-content>
+
+
+
+
