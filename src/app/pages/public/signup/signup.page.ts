@@ -28,7 +28,7 @@ export class SignupPage implements OnInit {
   ngOnInit() {
     this.signup_form = this.formBuilder.group({
       email: ['', Validators.compose([Validators.email, Validators.required])],
-      cpf: ['', Validators.compose([Validators.minLength(11), Validators.required])],
+      cnpj: ['', Validators.compose([Validators.minLength(11), Validators.required])],
       password: ['', Validators.compose([Validators.minLength(6), Validators.required])],
       password_repeat: ['', Validators.compose([Validators.minLength(6), Validators.required])]
     });
