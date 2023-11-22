@@ -1,6 +1,5 @@
 import { Optional } from "@angular/core";
 
-
 export class Cidade {
   id: number;
   nomecidade: string;

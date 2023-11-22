@@ -1,11 +1,10 @@
 const formulario = document.querySelector("form");
 const botao = document.querySelector("button");
 const inome = document.querySelector(".nome");
-const itipoprod = document.querySelector(".tipoprod");
 
 
 function cadastrar(){
-  fetch("http://localhost8080/subtipos",
+  fetch("http://localhost8080/tipos",
   {
     headers: {
       "Accept": "application/json",
@@ -13,8 +12,7 @@ function cadastrar(){
     },
     method: "POST",
     body: JSON.stringify({
-      nome: inome.value,
-      tipoprod: itipoprod.value
+      nome: inome.value
     })
   })
 
