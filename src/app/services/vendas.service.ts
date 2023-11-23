@@ -1,10 +1,9 @@
-import { HttpClient, HttpParams } from '@angular/core/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Venda } from '../scripts/model';
+import { Venda } from '../services/scripts/model';
 
 export class VendaFiltro {
-  datavenda: Date;
   produto: string;
   fornecedor: string;
   cliente: string;
@@ -13,9 +12,9 @@ export class VendaFiltro {
 }
 
 @Injectable({
-  provideIn: 'root'
+  providedIn: 'root'
 })
-export class VendaService {
+export class VendasService {
   vendaUrl: string;
 
   constructor(private http: HttpClient){
@@ -30,9 +29,6 @@ export class VendaService {
         size: filtro.itensPorPagina.toString()
       }
     });
-    if (filtro.datavenda) {
-      params = params.append('datavenda', filtro.datavenda);
-    }
 
     if (filtro.fornecedor) {
       params = params.append('fornecedor', filtro.fornecedor);
@@ -52,11 +48,35 @@ export class VendaService {
       const venda = response.content;
 
 
-    })
+      const resultado = {
+        venda,
+        total: response.totalElements
+      };
+      return resultado;
+    });
+  }
 
+    adicionar(venda: Venda): Promise<Venda> {
+      return this.http.post<Venda>(this.vendaUrl, venda).toPromise();
+    }
 
+    atualizar(venda: Venda): Promise<Venda> {
+      return this.http.put<Venda>('${this.vendaUrl}/$(venda.id)', venda)
+      .toPromise()
+      .then(response => {
+        const vendaAlterado = response;
+        return vendaAlterado;
+      });
+    }
 
-
+    excluir(id: number): Promise<void> {
+      return this.http.delete(`${this.vendaUrl}/${id}`)
+      .toPromise()
+      .then (response => {
+        const venda = response;
+        return venda;
+      });
+    }
 
   }
-}
+

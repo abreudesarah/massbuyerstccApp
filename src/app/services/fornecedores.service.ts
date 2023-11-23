@@ -1,7 +1,7 @@
-import { HttpClient, HttpParams } from '@angular/core/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Fornecedor } from '../scripts/model';
+import { Fornecedor } from '../services/scripts/model';
 
 export class FornecedorFiltro {
   nome: string;
@@ -15,9 +15,9 @@ export class FornecedorFiltro {
 }
 
 @Injectable({
-  provideIn: 'root'
+  providedIn: 'root'
 })
-export class FornecedorService {
+export class FornecedoresService {
   fornecedorUrl: string;
 
   constructor(private http: HttpClient){
@@ -61,13 +61,37 @@ export class FornecedorService {
     .then(response => {
       const fornecedores = response.content;
 
+      const resultado = {
+        fornecedores,
+        total: response.totalElements
+      };
+      return resultado;
+    });
+  }
 
-    })
+    adicionar(fornecedor: Fornecedor): Promise<Fornecedor> {
+      return this.http.post<Fornecedor>(this.fornecedorUrl, fornecedor).toPromise();
+    }
 
+    atualizar(fornecedor: Fornecedor): Promise<Fornecedor> {
+      return this.http.put<Fornecedor>('${this.fornecedorUrl}/$(fornecedor.id)', fornecedor)
+      .toPromise()
+      .then(response => {
+        const fornecedorAlterado = response;
+        return fornecedorAlterado;
+      });
+    }
 
+    excluir(id: number): Promise<void> {
+      return this.http.delete(`${this.fornecedorUrl}/${id}`)
+      .toPromise()
+      .then (response => {
+        const fornecedor = response;
+        return fornecedor;
+      });
+    }
 
 
 
   }
-}
 

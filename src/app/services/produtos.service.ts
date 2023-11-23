@@ -1,7 +1,7 @@
-import { HttpClient, HttpParams } from '@angular/core/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Produtos } from '../scripts/model';
+import { Produto } from '../services/scripts/model';
 
 export class ProdutoFiltro {
   nome: string;
@@ -13,7 +13,7 @@ export class ProdutoFiltro {
 }
 
 @Injectable({
-  provideIn: 'root'
+  providedIn: 'root'
 })
 export class ProdutosService {
   produtosUrl: string;
@@ -51,12 +51,38 @@ export class ProdutosService {
     .then(response => {
       const produtos = response.content;
 
+      const resultado = {
+        produtos,
+        total: response.totalElements
+      };
+      return resultado;
+    });
+  }
 
-    })
+    adicionar(produtos: Produto): Promise<Produto> {
+      return this.http.post<Produto>(this.produtosUrl, produtos).toPromise();
+    }
 
+    atualizar(produtos: Produto): Promise<Produto> {
+      return this.http.put<Produto>('${this.produtosUrl}/$(produtos.id)', produtos)
+      .toPromise()
+      .then(response => {
+        const produtosAlterado = response;
+        return produtosAlterado;
+      });
+    }
 
+    excluir(id: number): Promise<void> {
+      return this.http.delete(`${this.produtosUrl}/${id}`)
+      .toPromise()
+      .then (response => {
+        const produto = response;
+        return produto;
+      });
+    }
 
 
 
   }
-}
+
+

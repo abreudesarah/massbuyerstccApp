@@ -1,12 +1,11 @@
-import { HttpClient, HttpParams } from '@angular/core/http';
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Cliente } from '../scripts/model';
+import { Cliente } from '../services/scripts/model';
 
 export class ClientesFiltro {
   nome: string;
   email: string;
-  nascimento: Date;
   senha: string;
   telefone: number;
   pagina = 0;
@@ -14,7 +13,7 @@ export class ClientesFiltro {
 }
 
 @Injectable({
-  provideIn: 'root'
+  providedIn: 'root'
 })
 export class ClientesService {
   clientesUrl: string;
@@ -37,10 +36,6 @@ export class ClientesService {
 
     if (filtro.email) {
       params = params.append('email', filtro.email);
-    }
-
-    if (filtro.nascimento) {
-      params = params.append('nascimento', filtro.nascimento);
     }
 
     if (filtro.senha) {
@@ -68,7 +63,7 @@ export class ClientesService {
       return this.http.post<Cliente>(this.clientesUrl, clientes).toPromise();
     }
 
-    atualizar (clientes: Cliente): Promise<Cliente> {
+    atualizar(clientes: Cliente): Promise<Cliente> {
       return this.http.put<Cliente>('${this.clientesUrl}/$(clientes.id)', clientes)
       .toPromise()
       .then(response => {
