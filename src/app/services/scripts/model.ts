@@ -1,6 +1,6 @@
 import { Optional } from "@angular/core";
 
-export class Cidade {
+export class Cidades {
   id: number;
   nomecidade: string;
   estado: string;
